@@ -1,0 +1,71 @@
+# 🌸 Happy Mother's Day Website
+
+A magical, animated surprise website for Mom — built with pure HTML, CSS, and JavaScript.
+No frameworks needed. Just open `index.html` in VS Code Live Server or any browser.
+
+---
+
+## 📁 File Structure
+
+```
+mothers-day/
+│
+├── index.html       ← Main page (structure)
+├── style.css        ← All styles & animations
+├── script.js        ← Interactivity & effects
+├── README.md        ← This file
+│
+└── photos/          ← 📸 Create this folder & add photos!
+    ├── photo1.jpg
+    ├── photo2.jpg
+    ├── photo3.jpg
+    ├── photo4.jpg
+    ├── photo5.jpg
+    └── photo6.jpg
+```
+
+---
+
+## ✏️ How to Customize
+
+### 1. Add Photos
+- Create a folder called `photos/` inside the project folder
+- Add your photos named `photo1.jpg` through `photo6.jpg`
+- You can change photo captions in `index.html` — look for `<p class="photo-caption">`
+
+### 2. Change the Children's Names
+In `index.html`, search for:
+- `[Child 1's Name]`
+- `[Child 2's Name]`
+- `[Child 3's Name]`
+Replace these with the real names.
+
+### 3. Write the Real Letters
+In `index.html`, find the three `<div class="letter-body">` sections.
+Each one has a comment: `<!-- ✏️ REPLACE THIS with Child X's real letter -->`
+Replace the placeholder text with the actual letter from each child.
+
+### 4. Update the Date
+In `index.html`, find `May 11, 2025` inside the `<div class="date-badge">` and update it.
+
+---
+
+## 🚀 Upload to GitHub Pages
+
+1. Create a new GitHub repository (e.g., `mothers-day`)
+2. Upload all files (including the `photos/` folder)
+3. Go to **Settings → Pages**
+4. Set source to **main branch / root**
+5. GitHub will give you a link like: `https://yourusername.github.io/mothers-day/`
+6. Share that link with Mom! 🎉
+
+---
+
+## 🌟 Features
+- 🌸 Falling petals animation
+- ✨ Twinkling glitter on the hero
+- 💌 3 animated envelopes that open to reveal letters
+- 📸 Photo gallery with hover effects
+- 🎀 Sparkle burst when opening letters
+- 📱 Mobile responsive
+- 💖 Pure HTML/CSS/JS — no dependencies!
