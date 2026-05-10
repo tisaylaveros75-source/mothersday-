@@ -4,23 +4,18 @@
 
 /* ---- Page Navigation ---- */
 function showPage(pageId) {
-  // Hide all pages
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
-    // Force reflow so the opacity transition fires properly
     p.style.display = 'none';
   });
 
   const target = document.getElementById(pageId);
   if (!target) return;
 
-  // Show target page with a slight delay so CSS transitions play
   target.style.display = 'flex';
-  // Force reflow
   target.getBoundingClientRect();
   target.classList.add('active');
 
-  // Scroll to top of page
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -29,16 +24,16 @@ function openLetter(wrapperEl, letterId) {
   const overlay = document.getElementById(letterId);
   if (!overlay) return;
   overlay.classList.add('open');
-  // Prevent background scroll
+  // Lock background scroll but allow overlay itself to scroll
   document.body.style.overflow = 'hidden';
-  // Sparkle burst effect at envelope position
+  // Scroll overlay to top each time it opens
+  overlay.scrollTop = 0;
   spawnBurst(wrapperEl);
 }
 
 function closeLetter(letterId) {
   const overlay = document.getElementById(letterId);
   if (!overlay) return;
-  // Animate out
   overlay.style.animation = 'fadeOut 0.25s ease forwards';
   setTimeout(() => {
     overlay.classList.remove('open');
@@ -118,7 +113,7 @@ function createPetal() {
   petal.classList.add('petal');
   petal.textContent = PETALS[Math.floor(Math.random() * PETALS.length)];
 
-  const startX = Math.random() * 110 - 5; // -5vw to 105vw
+  const startX = Math.random() * 110 - 5;
   const duration = 6 + Math.random() * 10;
   const delay    = Math.random() * 12;
   const size     = 0.8 + Math.random() * 1.2;
@@ -129,15 +124,11 @@ function createPetal() {
   petal.style.animationDelay   = `${delay}s`;
 
   container.appendChild(petal);
-
-  // Remove after animation completes
   setTimeout(() => petal.remove(), (duration + delay) * 1000);
 }
 
-// Spawn petals continuously
 function spawnPetals() {
   createPetal();
-  // Vary the interval so it feels organic
   setTimeout(spawnPetals, 600 + Math.random() * 1000);
 }
 spawnPetals();
@@ -153,7 +144,7 @@ function spawnGlitter() {
   }
 
   const g = document.createElement('div');
-  const x = 15 + Math.random() * 70; // keep away from edges
+  const x = 15 + Math.random() * 70;
   const y = 20 + Math.random() * 60;
   const symbols = ['✦','✧','⋆','·','✸'];
   const sym = symbols[Math.floor(Math.random() * symbols.length)];
